@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="/static/css/blogCommon.css" th:href="@{/css/blogCommon.css}"/>
+</head>
+<body>
+<form action="#" th:class="form-horizontal" th:action="@{/login}" th:method="post">
+    <fieldset>
+        <legend>Admin Login</legend>
+        <div class="form-group">
+            <label th:for="userName" class="col-lg-2 col-md-2 col-sm-2 control-label">Username</label>
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <input class="form-control" id="userName" placeholder="Username / Email" type="text"
+                       th:name="userName"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label th:for="userPassword" class="col-lg-2 col-md-2 col-xs-2 control-label">Password</label>
+            <div class="col-lg-8 col-sm-8 col-xs-8">
+                <input class="form-control" id="userPassword" placeholder="Password" type="password"
+                       th:name="password"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2 col-sm-10 col-xs-10 col-lg-offset-2">
+                <button type="reset" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+</body>
+</html>
