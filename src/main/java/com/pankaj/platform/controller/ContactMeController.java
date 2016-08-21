@@ -21,13 +21,13 @@ public class ContactMeController {
 
     @RequestMapping(value = "/contact/submit", method = RequestMethod.POST)
     public String doGatherContactDetails(@ModelAttribute ContactMe contact, BindingResult result, ModelMap model) {
-        /*if(result.hasErrors()) {
+        if(result.hasErrors()) {
             return "error";
-        }*/
+        }
 
-        System.out.println(contact.getFullName());
+        model.addAttribute("submitMessage", String.format("Thanks %s for getting the details across to me and I shall get back to you at the earliest!", contact.getFullName()));
+        model.addAttribute("contact", contact);
 
-        model.addAttribute("message", String.format("Thanks %s for getting the details across to me. I shall get back to you at the earliest", contact.getFullName()));
-        return "messageAccepted";
+        return "/contactMe";
     }
 }
