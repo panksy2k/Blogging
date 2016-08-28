@@ -3,13 +3,35 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="/static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"/>
-    <link href="/static/css/blogCommon.css" rel="stylesheet"/>
+    <link href="/static/css/blogCommon.css" th:href="@{/css/blogCommon.css}" rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 </head>
 <body>
 <div class="container-fluid">
     <div class="page-header">
-        <h2>Welcome to my home page!</h2>
+        <nav class="navbar navbar-inverse navbar-fixed-top cbp-af-header">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">PP</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">About me</a></li>
+                        <li><a href="#">Technical Writings</a></li>
+                        <li><a href="#">Github Repositories</a></li>
+                        <li><a href="#">Contact me</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </div>
 
     <div class="row">
@@ -27,7 +49,8 @@
                 <div class="panel-body">
                     <ul>
                         <li>12 years of experience in building Java Enterprise Applications.</li>
-                        <li>Vast experience working within Investemnt banking, Asset management and Telecomm industry.</li>
+                        <li>Vast experience working within Investemnt banking, Asset management and Telecomm industry.
+                        </li>
                         <li><a href="#">Learn about Pankaj P</a></li>
                     </ul>
                 </div>
@@ -63,6 +86,9 @@
         <h1>FOOTER</h1>
     </footer>
 </div>
+<script th:src="@{/js/bootstrap.min.js}"/>
+<script th:src="@{/js/jquery-3.1.0.min.js}"/>
+<script src="/static/js/classie.js" th:src="@{/js/classie.js}"/>
+<script src="/static/js/cbpAnimatedHeader.js" th:src="@{/js/cbpAnimatedHeader.js}"/>
 </body>
-<script src="/js/bootstrap.min.js"/>
 </html>
