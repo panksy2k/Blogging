@@ -139,9 +139,13 @@ body {
     margin-left: 0;
     margin-right: 0;
     padding: 0;
-    color: #dcdcdc
+    color: #dcdcdc;
 }
 
 .row__contact_me {
     background: #B51B33;
+}
+
+.fieldset legend {
+    color: #dcdcdc;
 }
