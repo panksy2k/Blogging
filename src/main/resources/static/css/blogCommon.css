@@ -1,11 +1,13 @@
 body {
-    font-family: 'SansSerif', SansSerif;
+    font-family: "lft-etica-1","lft-etica-2",sans-serif;
+    color: #f2f2f2;
+    font-size: 15px;
 }
 
 .navbar {
     margin-bottom: 0px;
     padding: 2px 20px;
-    width: 57.5%;
+    width: 100%;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
 }
@@ -14,4 +16,132 @@ body {
     padding-top: 5px;
     padding-bottom: 5px;
     opacity: 0.9;
+}
+
+.row {
+    padding-top: 1em;
+    font-size: 12px;
+}
+
+.row__intro {
+    border-bottom: 20px solid #87d6ed;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 1.7em;
+    padding-top: 2em;
+}
+
+.intro h1 {
+    width: 100%;
+    font-weight: 200;
+    font-family: "etica-display-1", "etica-display-2", sans-serif;
+    text-transform: none;
+    font-size: 5.4em;
+    text-align: left;
+    border-style: none;
+    padding: 0;
+    padding-top: 40px;
+    padding-bottom: .2em;
+    border-bottom: 7px double #87d6ed;
+    margin-bottom: .2em;
+    -moz-font-feature-settings: "liga=1, dlig=1";
+    -moz-font-feature-settings: "liga", "dlig";
+    -ms-font-feature-settings: "liga", "dlig";
+    -o-font-feature-settings: "liga", "dlig";
+    -webkit-font-feature-settings: "liga", "dlig";
+    font-feature-settings: "liga", "dlig";
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+.intro h2 {
+    font-size: 1.9em;
+    width: 63%;
+    text-align: left;
+    font-weight: 400;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    font-family: "skolar-1", "skolar-2";
+    -webkit-font-smoothing: antialiased;
+    color: #FFF;
+    text-align: left;
+    float: left;
+    margin-top: 0;
+    -moz-font-feature-settings: "liga=1, dlig=1";
+    -moz-font-feature-settings: "liga", "dlig";
+    -ms-font-feature-settings: "liga", "dlig";
+    -o-font-feature-settings: "liga", "dlig";
+    -webkit-font-feature-settings: "liga", "dlig";
+    font-feature-settings: "liga", "dlig";
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    width: 63%;
+}
+
+.intro .overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    max-width: 1400px;
+    background: rgba(0, 0, 0, 0.1);
+    ight: 480px;
+    display: block;
+    background: linear-gradient(to left, transparent 0%, #111 90%);
+}
+
+.row__portfolio {
+    color: #444;
+    border-top: 20px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 2em;
+    background: #2b7fac;
+    border-bottom: 20px solid #e55168;
+}
+
+.row__portfolio > h1 {
+    margin-bottom: .4em;
+}
+
+.row > h1 {
+    font-weight: 200;
+    font-family: "etica-display-1", "etica-display-2", sans-serif;
+    text-align: center;
+    font-size: 3.6em;
+    color: #f8f8ff;
+}
+
+.row > p {
+    margin: auto;
+    max-width: 600px;
+    font-family: "skolar-1", "skolar-2";
+    margin-bottom: 2em;
+    padding: 0 20px;
+    font-size: 1.3em;
+    color: #f0fff0;
+}
+
+.row__projects {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    color: #fffaf0;
+    float: left;
+    margin-top: 0;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+.row__projects_detail {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    color: #dcdcdc
+}
+
+.row__contact_me {
+    background: #B51B33;
 }

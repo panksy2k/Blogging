@@ -33,64 +33,123 @@
         </nav>
     </div>
 
-    <div class="row">
-        <section class="col-sm-3 col-md-4 col-lg-5 col-sm-push-9 col-md-push-8 col-lg-push-7">
-            <button class="btn btn-primary" type="button">
-                Pankaj P <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-            </button>
+    <div class="row row__intro">
+        <section class="col-sm-12 col-md-11 col-lg-10 col-md-push-1 col-lg-push-2">
+            <section class="intro">
+                <h1>My name is Pankaj and I build stuff for people to use.</h1>
+                <img src="assets/img/scott.jpg" alt="Sexual Being"/>
+                <div class="overlay"></div>
+                <h2>I'm a Lead / Senior Java developer that build services for enterprise applications that are robust and scalable. I make the back-end rock solid that is not easy to break!</h2>
+            </section>
         </section>
-
-        <!--<div class="jumbotron">
-            <h1>My name is Pankaj and I make stuff that people can use or rely upon.</h1>
-            <p>==========================================================================</p>
-            <p>I am senior java programmer that build enterprise applications with fine knowledge of software engineering principles.</p>
-        </div>
--->
-
-        <div class="col-sm-9 col-md-8 col-lg-7 col-sm-pull-3 col-md-pull-4 col-lg-pull-5">
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">About</h3>
-                </div>
-                <div class="panel-body">
-                    <ul>
-                        <li>12 years of experience in building Java Enterprise Applications.</li>
-                        <li>Vast experience working within Investemnt banking, Asset management and Telecomm industry.
-                        </li>
-                        <li><a href="#">Learn about Pankaj P</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Technical writings</h3>
-                </div>
-                <div class="panel-body">
-                    <ul>
-                        <li>See the <a href="/blog/retrive">technical blogs</a> I've published!</li>
-                        <li><a href="#">See my github projects/contributions!</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Contact me</h3>
-                </div>
-                <div class="panel-body">
-                    <ul>
-                        <li><a href="/contact.html">Get in touch with me.</a></li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
     </div>
 
-    <footer class="container-fluid" role="contentinfo">
-        <h1>FOOTER</h1>
-    </footer>
+    <div id="my-experience" class="row row__portfolio">
+            <h1>My experience</h1>
+            <p>
+                I’ve been lucky enough to work on loads of pretty cool projects -- from huge enterprise banking applications
+                to small user base investment portfolio management applications that cater high worth clients.
+                Please see below all the projects/clients I have already dealt with!!
+            </p>
+
+            <div class="row row__projects">
+                <section class="col-sm-12 col-md-1 col-md-push-3">
+                    <h4>#</h4>
+                </section>
+                <section class="col-sm-12 col-md-1 col-md-push-3">
+                    <h4>Project name</h4>
+                </section>
+                <section class="col-sm-12 col-md-2 col-md-push-3">
+                    <h4>Description</h4>
+                </section>
+                <section class="col-sm-12 col-md-1 col-md-push-3">
+                    <h4>Organisation</h4>
+                </section>
+                <section class="col-sm-12 col-md-3 col-md-push-3">
+                    <h4>Tools/Technologies</h4>
+                </section>
+            </div>
+
+            <div class="row row__projects_detail">
+                <section class="col-sm-12 col-md-1 col-md-push-3">
+                    <h5>1</h5>
+                </section>
+                <section class="col-sm-12 col-md-1 col-md-push-3">
+                    <h5>Origami</h5>
+                </section>
+                <section class="col-sm-12 col-md-2 col-md-push-3">
+                    <h5>An application built for private wealth customers that proposes investment advise in order to meet their goals, for example increase
+                        in wealth, pay for education, marriage, buy property or any other life planning.</h5>
+                </section>
+                <section class="col-sm-12 col-md-1 col-md-push-3">
+                    <h5>Barclays</h5>
+                </section>
+                <section class="col-sm-12 col-md-3 col-md-push-3">
+                    <h5>Java 1.7, Multithreading, Spring boot, Spring core, RESTful services, JPA, JavaMail, MS SQL Server, Mustache, Maven, Git, Teamcity, Bash/Linux</h5>
+                </section>
+            </div>
+    </div>
+
+    <div id="reachout" class="row row__contact_me">
+        <section class="col-sm-12 col-md-11 col-lg-10 col-md-push-1 col-lg-push-2">
+            <form class="form-horizontal" action="#" th:action="@{/contact/submit}" method="post" th:object="${contact}">
+                <div class="alert alert-dismissible alert-success" th:if="${submitMessage} != null">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong><span th:text="${submitMessage}" /></strong>
+                    <p>
+                        Meanwhile, please feel free to visit my <a href="/index.html" class="alert-link">home</a> page or check out the technical blogs if that interest you!.
+                    </p>
+                </div>
+
+                <fieldset>
+                    <legend>Contact me</legend>
+
+                    <div class="form-group">
+                        <label for="subject" class="col-lg-2 control-label">Subject</label>
+                        <div class="col-lg-7">
+                            <input class="form-control" id="subject" th:placeholder="Subject" th:type="text" th:field="*{subject}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fullName" class="col-lg-2 control-label">Full name</label>
+                        <div class="col-lg-7">
+                            <input class="form-control" id="fullName" th:placeholder="Name" th:type="text" th:field="*{fullName}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telephone" class="col-lg-2 control-label">Phone</label>
+                        <div class="col-lg-7">
+                            <input class="form-control" id="telephone" th:placeholder="Telephone" type="text" th:field="*{telephoneNumber}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                        <div class="col-lg-7">
+                            <input class="form-control" id="inputEmail" th:placeholder="Email" th:type="text" th:field="*{personEmail}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes" class="col-lg-2 control-label">Notes</label>
+                        <div class="col-lg-7">
+                            <textarea class="form-control" rows="3" id="notes" th:field="*{notes}"></textarea>
+                            <span class="help-block">Please provide the details of the reason you want to get in touch with me.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-7 col-lg-offset-2">
+                            <button th:type="reset" class="btn btn-default">Cancel</button>
+                            <button th:type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+    </div>
 </div>
 <script th:src="@{/js/bootstrap.min.js}"/>
 <script th:src="@{/js/jquery-3.1.0.min.js}"/>

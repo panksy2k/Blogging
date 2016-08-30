@@ -13,10 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ContactMeController {
-
-    @RequestMapping(value = "/contact.html", method = RequestMethod.GET)
+    @RequestMapping(value = "/index.html", method = RequestMethod.GET)
     public ModelAndView showContactMe() {
-        return new ModelAndView("/contactMe", "contact", new ContactMe());
+        return new ModelAndView("/home", "contact", new ContactMe());
     }
 
     @RequestMapping(value = "/contact/submit", method = RequestMethod.POST)
@@ -28,6 +27,6 @@ public class ContactMeController {
         model.addAttribute("submitMessage", String.format("Thanks %s for getting the details across to me and I shall get back to you at the earliest!", contact.getFullName()));
         model.addAttribute("contact", contact);
 
-        return "/contactMe";
+        return "/home";
     }
 }
