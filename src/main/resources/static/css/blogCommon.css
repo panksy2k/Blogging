@@ -149,3 +149,8 @@ body {
 .fieldset legend {
     color: #dcdcdc;
 }
+
+.img-responsive {
+    display: inline;
+    width: 35%;
+}
