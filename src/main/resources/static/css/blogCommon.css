@@ -2,6 +2,7 @@ body {
     font-family: "lft-etica-1","lft-etica-2",sans-serif;
     color: #f2f2f2;
     font-size: 15px;
+    position: relative;
 }
 
 .navbar {
@@ -153,4 +154,42 @@ body {
 .img-responsive {
     display: inline;
     width: 35%;
+}
+
+.down-button {
+    position: absolute;
+    bottom: 40px;
+    width: 100%;
+    text-align: center;
+}
+
+.button__contact--header {
+    background: #e55168;
+}
+
+.button__contact {
+    background: rgba(181, 27, 51, 0.7);
+    border-color: rgba(181, 27, 51, 0.01);
+    color: #fafafa;
+}
+
+.button {
+    border-width: 4px;
+    color: rgba(0, 0, 0, 0.7);
+    padding: 1em;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    text-decoration: none;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-family: "etica-display-1", "etica-display-2", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 1px;
+    display: block;
 }
