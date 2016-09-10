@@ -1,10 +1,15 @@
 package com.pankaj.platform.domain;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * Created by pankajpardasani on 21/08/2016.
  */
-public class ContactMe {
 
+@Document
+public class ContactMe {
+    @Id
     private int id;
     private String subject;
     private String fullName;

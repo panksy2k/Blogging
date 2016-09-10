@@ -1,12 +1,15 @@
+/*
 package com.pankaj.platform.entity;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
+*/
 /**
  * Created by pankajpardasani on 17/07/2016.
- */
+ *//*
+
 
 @Entity
 public class BlogEntity {
@@ -65,3 +68,4 @@ public class BlogEntity {
         return Objects.hash(getId());
     }
 }
+*/
