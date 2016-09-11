@@ -9,21 +9,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class ContactMe {
-    @Id
-    private int id;
+    //@Id
+    //private int id;
     private String subject;
     private String fullName;
     private String personEmail;
     private String telephoneNumber;
     private String notes;
 
-    public int getId() {
+    /*public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
+    }*/
 
     public String getSubject() {
         return subject;

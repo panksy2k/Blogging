@@ -21,8 +21,7 @@ public class ContactServiceImpl implements ContactService {
         ContactMe contactMe = options.getContactDetails();
         ObjectUtil.checkNotNull(contactMe, "Could not find contact details before persisting!");
 
-        contactMe = contactRepository.save(contactMe);
-
-        return (contactMe.getId() != 0 ? true : false);
+        contactRepository.save(contactMe);
+        return true;
     }
 }

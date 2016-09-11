@@ -1,19 +1,13 @@
-/*
 package com.pankaj.platform.validation;
 
+import com.pankaj.platform.domain.ContactMe;
 import com.pankaj.platform.exception.BloggingBusinessException;
-import com.pankaj.platform.util.ObjectUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 import java.util.regex.Pattern;
-
-*/
-/**
- * Created by pardasap on 17/08/2016.
- *//*
 
 public class ContactmeValidator implements Validator {
     private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -24,115 +18,54 @@ public class ContactmeValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {
-        return (ContactmeValidator.class).isAssignableFrom(aClass);
+        return (ContactMe.class).isAssignableFrom(aClass);
     }
 
     @Override
     public void validate(Object target, Errors errors) {
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "prospectName", "required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "prospectEmailAddress", "required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "prospectPhone", "required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "subject", "required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "fullName", "required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "personEmail", "required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "telephoneNumber", "required");
 
+        ContactMe contactmeTarget = (ContactMe) target;
 
-        ContactmeValidator lifePlannerDetails = (LifePlannerDetails) target;
-
-        apply(lifePlannerDetails, errors, "prospectName");
-        apply(lifePlannerDetails, errors, "prospectEmailAddress");
-        apply(lifePlannerDetails, errors, "prospectPhone");
-        apply(lifePlannerDetails, errors, "reportSection");
+        apply(contactmeTarget, errors, "personEmail");
+        apply(contactmeTarget, errors, "telephoneNumber");
+        apply(contactmeTarget, errors, "fullName");
     }
 
-    private void apply(ContactmeValidator target, Errors errors, String fieldName) {
-        if("prospectName".equals(fieldName)) {
+    private void apply(ContactMe target, Errors errors, String fieldName) {
+        if("personEmail".equals(fieldName)) {
             if (!errors.hasFieldErrors(fieldName)) {
-                String prospectName = target.getProspectName();
+                String personEmailAddress = target.getPersonEmail();
 
-                if(INVALID_PROSPECT_NAME.matcher(prospectName).find()) {
-                    throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Invalid characters in prospect name");
-                }
-
-                if(!prospectName.matches(MAX_ANY_CHARACTERS_ALLOWED)) {
-                    throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Crossed maximum allowed limit in Prospect name");
+                if (!personEmailAddress.matches(EMAIL_PATTERN)) {
+                    errors.rejectValue("personEmail", "invalid");
                 }
             }
         }
-
-        if("prospectEmailAddress".equals(fieldName)) {
+        else if("telephoneNumber".equals(fieldName)) {
             if (!errors.hasFieldErrors(fieldName)) {
-                String prospectEmailAddress = target.getProspectEmailAddress();
+                String telephoneNumber = target.getTelephoneNumber();
 
-                if (!prospectEmailAddress.matches(EMAIL_PATTERN)) {
-                    throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Invalid prospect email pattern found!");
+                if(INVALID_PHONE_NUMBER_PATTERN.matcher(telephoneNumber).find()) {
+                    errors.rejectValue("telephoneNumber", "invalid");
+                }
+
+                if(telephoneNumber.length() > 18) {
+                    errors.rejectValue("telephoneNumber", "invalid");
                 }
             }
         }
-
-        if("prospectPhone".equals(fieldName)) {
+        else if("fullName".equals(fieldName)) {
             if (!errors.hasFieldErrors(fieldName)) {
-                String prospectPhone = target.getProspectPhone();
+                String personName = target.getFullName();
 
-                if(INVALID_PHONE_NUMBER_PATTERN.matcher(prospectPhone).find()) {
-                    throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Invalid prospect phone pattern found!");
-                }
-
-                if(prospectPhone.length() > 18) {
-                    throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Crossed maximum allowable limit for prospect phone number (18)!");
-                }
-            }
-        }
-
-        if("reportSection".equals(fieldName)) {
-            LifePlannerDetails.Section[] sectionDetails = target.getReportSection();
-
-            if(!ObjectUtil.checkIfNonEmpty(sectionDetails)) {
-                throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Section details not found!");
-            }
-
-            for(LifePlannerDetails.Section section : sectionDetails) {
-                ObjectUtil.checkNotNull(section.getName(), "Section name / title cannot be null!");
-                if(SECTION_HEADER_PATTERN.matcher(section.getName()).find()) {
-                    throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Invalid characters in Section header name");
-                }
-
-                if(!section.getName().matches(MAX_ANY_CHARACTERS_ALLOWED)){
-                    throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Crossed maximum allowed limit");
-                }
-
-                ObjectUtil.checkNotNull(section.getDescription(), "Section description cannot be null!");
-                if(SECTION_HEADER_PATTERN.matcher(section.getName()).find()) {
-                    throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Invalid characters in Section description");
-                }
-
-                if(!section.getDescription().matches(MAX_ANY_CHARACTERS_ALLOWED)){
-                    throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Crossed maximum allowed limit");
-                }
-
-                //Validate the sub-section details
-                if(!ObjectUtil.checkIfNonEmpty(section.getSubSectionDetails())) {
-                    throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Sub-Section Details are empty!");
-                }
-
-                for(LifePlannerDetails.Section.SubSectionItems subSection : section.getSubSectionDetails()) {
-                    ObjectUtil.checkNotNull(subSection.getItemName(), "Sub-Section name cannot be null!");
-                    if(SECTION_HEADER_PATTERN.matcher(subSection.getItemName()).find()) {
-                        throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Invalid characters in Sub-Section name");
-                    }
-
-                    if(!subSection.getItemName().matches(MAX_ANY_CHARACTERS_ALLOWED)){
-                        throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Crossed maximum allowed limit in Sub-Section name");
-                    }
-
-                    ObjectUtil.checkNotNull(subSection.getItemValue(), "Sub-Section value cannot be null!");
-                    if(SECTION_HEADER_PATTERN.matcher(subSection.getItemValue()).find()) {
-                        throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Invalid characters in Sub-Section value");
-                    }
-
-                    if(!subSection.getItemValue().matches(MAX_ANY_CHARACTERS_ALLOWED)){
-                        throw new BloggingBusinessException(HttpStatus.BAD_REQUEST, "Crossed maximum allowed limit in Sub-Section value");
-                    }
+                if(INVALID_PROSPECT_NAME.matcher(personName).find()) {
+                    errors.rejectValue("fullName", "invalid");
                 }
             }
         }
     }
 }
-*/
