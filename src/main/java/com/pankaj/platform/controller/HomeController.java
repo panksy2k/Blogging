@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
     @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String getHomePage(Model model) {
-        model.addAttribute("contact", new ContactMe());
+    public String getHomePage() {
         return "index";
     }
 }
