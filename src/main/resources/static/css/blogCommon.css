@@ -116,10 +116,10 @@ body {
 .row > p {
     margin: auto;
     max-width: 600px;
-    font-family: "skolar-1", "skolar-2";
-    margin-bottom: 2em;
-    padding: 0 20px;
-    font-size: 1.3em;
+    font-family: "inherit";
+    margin-bottom: 3em;
+    padding: 19px 20px;
+    font-size: 1.5em;
     color: #f0fff0;
 }
 
@@ -127,7 +127,7 @@ body {
     width: 100%;
     margin-left: 0;
     margin-right: 0;
-    padding: 0;
+    padding: 0px 0px 0px 780px;
     -webkit-font-smoothing: antialiased;
     color: #fffaf0;
     float: left;
@@ -192,4 +192,8 @@ body {
     -webkit-font-smoothing: antialiased;
     letter-spacing: 1px;
     display: block;
+}
+
+.fileupload {
+    font-size: 15px;
 }

@@ -32,6 +32,7 @@ public class ContactMeController {
     public String initCreationForm(Model model) {
         ContactMe contact = new ContactMe();
         model.addAttribute("contact", contact);
+        model.addAttribute("freeze", false);
 
         return "contactMe";
     }
@@ -41,11 +42,13 @@ public class ContactMeController {
 
         if (result.hasErrors()) {
             model.addAttribute("contact", contact);
+            model.addAttribute("freeze", false);
             return "contactMe";
         }
         else {
             contactService.accountContactDetails(new APIOptionsBuilder().withContactDetails(contact).build());
             status.setComplete();
+            model.addAttribute("freeze", true);
 
             return "redirect:/home";
         }

@@ -10,32 +10,8 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div id="top" class="page-header">
-        <nav class="navbar navbar-inverse navbar-fixed-top cbp-af-header" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                            data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" th:href="@{/home}">PP</a>
-                </div>
+    <div th:include="navBar"/>
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a th:href="@{/home}">Home</a></li>
-                        <li><a href="#my-experience">My experience</a></li>
-                        <li><a href="/contact/form">Contact me</a></li>
-                        <li><a href="#">Technical Blogs</a></li>
-                        <li><a href="mailto:pankaj.d.p@gmail.com" class="button button__contact button__contact--header">Hire Me</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
     <div id="reachout" class="row row__contact_me">
         <section class="col-sm-12 col-md-11 col-lg-10 col-md-push-1 col-lg-push-2">
             <form class="form-horizontal" action="#" th:action="@{/contact/form}" method="post" th:object="${contact}">
@@ -56,7 +32,8 @@
                     <div class="form-group" th:classappend="${#fields.hasErrors('subject')} ? 'error'">
                         <label for="subject" class="col-lg-2 col-xs-2 col-md-1 control-label">Subject</label>
                         <div class="col-lg-6 col-xs-10 col-md-5">
-                            <input class="form-control" id="subject" th:placeholder="Subject" th:type="text" th:field="*{subject}"/>
+                            <input class="form-control" id="subject" th:placeholder="Subject" th:type="text" th:field="*{subject}"
+                                   th:disabled="${freeze == null}? #{bool.false} : ${freeze}"/>
                             <span class="help-inline" th:errors="*{subject}">[error]</span>
                         </div>
                     </div>
@@ -65,7 +42,7 @@
                         <label for="fullName" class="col-lg-2 col-xs-2 col-md-1 control-label">Full name</label>
                         <div class="col-lg-5 col-md-4 col-xs-10">
                             <input class="form-control" id="fullName" th:placeholder="Name" th:type="text"
-                                   th:field="*{fullName}"/>
+                                   th:field="*{fullName}" th:disabled="${freeze == null}? #{bool.false} : ${freeze}"/>
                         </div>
                     </div>
 
@@ -73,7 +50,7 @@
                         <label for="telephone" class="col-lg-2 col-xs-2 col-md-1 control-label">Phone</label>
                         <div class="col-lg-4 col-md-3 col-xs-10">
                             <input class="form-control" id="telephone" th:placeholder="Telephone" type="text"
-                                   th:field="*{telephoneNumber}"/>
+                                   th:field="*{telephoneNumber}" th:disabled="${freeze == null}? #{bool.false} : ${freeze}"/>
                         </div>
                     </div>
 
@@ -81,7 +58,7 @@
                         <label for="inputEmail" class="col-lg-2 col-xs-2 col-md-1 control-label">Email</label>
                         <div class="col-lg-4 col-md-3 col-xs-10">
                             <input class="form-control" id="inputEmail" th:placeholder="Email" th:type="text"
-                                   th:field="*{personEmail}" th:errorclass="fieldError" />
+                                   th:field="*{personEmail}" th:errorclass="fieldError" th:disabled="${freeze == null}? #{bool.false} : ${freeze}"/>
 
                         </div>
                     </div>
@@ -89,7 +66,8 @@
                     <div class="form-group">
                         <label for="notes" class="col-lg-2 col-xs-2 col-md-1 control-label">Notes</label>
                         <div class="col-lg-5 col-md-4 col-cs-10">
-                            <textarea class="form-control" rows="4" id="notes" th:field="*{notes}"></textarea>
+                            <textarea class="form-control" rows="4" id="notes" th:field="*{notes}"
+                                      th:disabled="${freeze == null}? #{bool.false} : ${freeze}" />
                             <span class="help-block">Please provide the details of the reason you want to get in touch with me.</span>
                         </div>
                     </div>
