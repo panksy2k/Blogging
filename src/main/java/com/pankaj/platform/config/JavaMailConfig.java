@@ -1,3 +1,4 @@
+/*
 package com.pankaj.platform.config;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -7,9 +8,11 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
 
+*/
 /**
  * Created by pardasap on 18/07/2016.
- */
+ *//*
+
 @Configuration
 public class JavaMailConfig {
     @Value("${mail.smtp}")
@@ -52,3 +55,4 @@ public class JavaMailConfig {
         return mailSender;
     }
 }
+*/

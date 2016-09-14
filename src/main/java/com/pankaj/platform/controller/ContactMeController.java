@@ -48,9 +48,9 @@ public class ContactMeController {
         else {
             contactService.accountContactDetails(new APIOptionsBuilder().withContactDetails(contact).build());
             status.setComplete();
-            model.addAttribute("freeze", true);
+            model.addAttribute("freeze", true).addAttribute("submitMessage", String.format("Thanks %s for getting in touch with me. I shall get back to you very soon!", contact.getFullName()));
 
-            return "redirect:/home";
+            return "contactMe";
         }
     }
 

@@ -4,6 +4,7 @@ import com.pankaj.platform.domain.Blog;
 import com.pankaj.platform.domain.ContactMe;
 
 import java.io.InputStream;
+import java.util.Map;
 
 /**
  * Created by pankajpardasani on 17/07/2016.
@@ -12,10 +13,11 @@ public class APIOptions {
 
     private final Blog blogEntry;
     private final ContactMe contactDetails;
-    private String documentName;
-    private String documentType;
-    private InputStream documentContent;
-    private String documentIdentifier;
+    private final String documentName;
+    private final String documentType;
+    private final InputStream documentContent;
+    private final String documentIdentifier;
+    private final Map<String, String> documentMetaData;
 
     private APIOptions(APIOptionsBuilder builder) {
         this.blogEntry = builder.blog;
@@ -24,6 +26,7 @@ public class APIOptions {
         this.documentName = builder.documentName;
         this.documentType = builder.documentType;
         this.documentIdentifier = builder.documentID;
+        this.documentMetaData = builder.documentMetaData;
     }
 
     public Blog getBlogEntry() {
@@ -50,6 +53,10 @@ public class APIOptions {
         return documentIdentifier;
     }
 
+    public Map<String, String> getDocumentMetaData() {
+        return documentMetaData;
+    }
+
     public static class APIOptionsBuilder {
         private Blog blog;
         private ContactMe contact;
@@ -57,6 +64,7 @@ public class APIOptions {
         private String documentType;
         private InputStream documentContent;
         private String documentID;
+        private Map<String, String> documentMetaData;
 
 
         public APIOptionsBuilder withBlogEntry(Blog blogEntry) {
@@ -86,6 +94,11 @@ public class APIOptions {
 
         public APIOptionsBuilder withDocumentID(String documentID) {
             this.documentID = documentID;
+            return this;
+        }
+
+        public APIOptionsBuilder withDocumentMetaData(Map<String, String> documentMetaData) {
+            this.documentMetaData = documentMetaData;
             return this;
         }
 

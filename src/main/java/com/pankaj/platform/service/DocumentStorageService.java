@@ -1,10 +1,10 @@
 package com.pankaj.platform.service;
 
 import com.mongodb.gridfs.GridFSDBFile;
-import com.mongodb.gridfs.GridFSFile;
 import com.pankaj.platform.dto.APIOptions;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -14,6 +14,5 @@ import java.util.Optional;
 @Service
 public interface DocumentStorageService {
     String storeDocument(APIOptions options);
-    Optional<GridFSDBFile> findContentByFileName(APIOptions options);
-    Optional<GridFSFile> findContentByFileID(APIOptions options);
+    Optional<GridFSDBFile> findContentByMetaInfo(Map.Entry<String, String> options);
 }
