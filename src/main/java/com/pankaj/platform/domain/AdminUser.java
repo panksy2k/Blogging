@@ -4,8 +4,6 @@ package com.pankaj.platform.domain;
  * Created by pankajpardasani on 14/08/2016.
  */
 public class AdminUser {
-
-
     private String email;
     private String userName;
     private String password;

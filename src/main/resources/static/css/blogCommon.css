@@ -105,6 +105,27 @@ body {
     margin-bottom: .4em;
 }
 
+.row__bloglist {
+    padding-bottom: 2em;
+}
+
+.panel-heading-blog {
+    font-family: "etica-display-1", "etica-display-2", sans-serif;
+    font-size: small;
+}
+
+.table_header {
+    background-color: #7a8288;
+    font-family: "etica-display-1", "etica-display-2", sans-serif;
+    font-size: small;
+}
+
+.table_element {
+    background-color: #7a8288;
+    font-family: "etica-display-1", "etica-display-2", sans-serif;
+    font-size: small;
+}
+
 .row > h1 {
     font-weight: 200;
     font-family: "etica-display-1", "etica-display-2", sans-serif;
@@ -158,6 +179,17 @@ body {
 
 .row__contact_me {
     background: #B51B33;
+}
+
+.blog_list {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0px 5px 0px 5px;
+    color: #2aabd2;
+    float: left;
+    margin-top: 0;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 }
 
 .fieldset legend {

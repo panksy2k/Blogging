@@ -1,24 +1,29 @@
 package com.pankaj.platform.domain;
 
-import org.joda.time.LocalDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
  * Created by pankajpardasani on 16/07/2016.
  */
+@Document
 public class Blog {
-    private Long id;
+    @Id
+    private String id;
     private String title;
     private String content;
     private LocalDate creationDate;
+    private LocalDate updateDate;
     private List<Comments> comments;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -52,5 +57,13 @@ public class Blog {
 
     public void setComments(List<Comments> comments) {
         this.comments = comments;
+    }
+
+    public LocalDate getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(LocalDate updateDate) {
+        this.updateDate = updateDate;
     }
 }
