@@ -3,7 +3,9 @@ package com.pankaj.platform.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  * Created by pankajpardasani on 24/09/2016.
@@ -12,9 +14,12 @@ import java.time.LocalDate;
 public class CareerResume {
     @Id
     private String id;
+    private String candidateName;
 
+    @NotNull
     private ProfessionalSummary summary;
-    private ProjectSpecification experience;
+    @NotNull
+    private List<ProjectSpecification> experience;
 
     public String getId() {
         return id;
@@ -32,12 +37,20 @@ public class CareerResume {
         this.summary = summary;
     }
 
-    public ProjectSpecification getExperience() {
+    public List<ProjectSpecification> getExperience() {
         return experience;
     }
 
-    public void setExperience(ProjectSpecification experience) {
+    public void setExperience(List<ProjectSpecification> experience) {
         this.experience = experience;
+    }
+
+    public String getCandidateName() {
+        return candidateName;
+    }
+
+    public void setCandidateName(String candidateName) {
+        this.candidateName = candidateName;
     }
 
     private static class ProfessionalSummary {
