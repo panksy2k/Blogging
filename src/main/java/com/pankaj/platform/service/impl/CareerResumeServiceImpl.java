@@ -23,11 +23,13 @@ public class CareerResumeServiceImpl implements CareerResumeService {
         CareerResume pankajResume = new CareerResume();
         pankajResume.setCandidateName("Pankaj Pardasani");
 
-        return Optional.ofNullable(careerResumeRepository.findOne(Example.of(pankajResume))).orElseGet(CareerResume :: new);
+        CareerResume careerResume = Optional.ofNullable(careerResumeRepository.findOne(Example.of(pankajResume))).orElseGet(CareerResume :: new);
+        return careerResume;
     }
 
     @Override
     public boolean putProfileDetails(CareerResume resume) {
+        resume.setCandidateName("Pankaj Pardasani");
         return Optional.of(careerResumeRepository.save(resume)).isPresent();
     }
 }

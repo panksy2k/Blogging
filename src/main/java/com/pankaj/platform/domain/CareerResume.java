@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class CareerResume {
     private String id;
     private String candidateName;
     private ProfessionalSummary summary = new ProfessionalSummary();
-    private List<ProjectSpecification> experience;
+    private List<ProjectSpecification> experience = new ArrayList<>(1);
 
     public String getId() {
         return id;
@@ -61,7 +62,7 @@ public class CareerResume {
         }
     }
 
-    private static class ProjectSpecification {
+    public static class ProjectSpecification {
         private LocalDate startDate, endDate;
         private String projectName, projectDescription;
         private String organisation;
