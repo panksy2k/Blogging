@@ -1,5 +1,5 @@
 body {
-    font-family: "lft-etica-1","lft-etica-2",sans-serif;
+    font-family: "lft-etica-1", "lft-etica-2", sans-serif;
     color: #f2f2f2;
     font-size: 15px;
     position: relative;
@@ -124,6 +124,27 @@ body {
     background-color: #7a8288;
     font-family: "etica-display-1", "etica-display-2", sans-serif;
     font-size: small;
+}
+
+.table_row_button {
+    border-width: 4px;
+    color: rgba(0, 0, 0, 0.7);
+    padding: 1em;
+    font-size: 0.5em;
+    text-transform: uppercase;
+    text-decoration: none;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    font-family: "etica-display-1", "etica-display-2", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: 1px;
+    display: block;
 }
 
 .row > h1 {
