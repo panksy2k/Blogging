@@ -12,71 +12,40 @@
 <div class="container-fluid">
     <div th:include="navBar"/>
 
-    <div id="reachout" class="row row__contact_me">
+    <div id="careerProfile">
         <section class="col-sm-12 col-md-11 col-lg-10 col-md-push-1 col-lg-push-2">
-            <form class="form-horizontal" action="#" th:action="@{/career/profile/edit}" method="post" th:object="${career}">
-                <div class="alert alert-dismissible alert-success" th:if="${submitMessage} != null">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong><span th:text="${submitMessage}"/></strong>
-                </div>
-
-                <div class="alert alert-dismissible alert-warning" th:if="${#fields.hasErrors('subject')} ? 'error'">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong><span class="help-inline" th:errors="*{subject}">[error]</span></strong>
-                </div>
-
-
+            <form class="form-horizontal" action="#" th:action="@{/profile/edit}" method="post"
+                  th:object="${careerProfile}">
                 <fieldset>
-                    <legend class="text-right">Contact me</legend>
-
-                    <div class="form-group" th:classappend="${#fields.hasErrors('subject')} ? 'error'">
-                        <label for="subject" class="col-lg-2 col-xs-2 col-md-1 control-label">Subject</label>
-                        <div class="col-lg-6 col-xs-10 col-md-5">
-                            <input class="form-control" id="subject" th:placeholder="Subject" th:type="text" th:field="*{subject}"
-                                   th:disabled="${freeze == null}? #{bool.false} : ${freeze}"/>
-                            <span class="help-inline" th:errors="*{subject}">[error]</span>
-                        </div>
+                    <div>
+                        <label>Professional Summary</label>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Row</th>
+                                <th>Summary Info</th>
+                                <th>
+                                    <button type="submit" name="addSummary">Add row</button>
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="row,rowStat : *{summary.summaryInfo}">
+                                <td th:text="${rowStat.count}">1</td>
+                                <td>
+                                    <input type="text" th:field="*{summary.summaryInfo[__${rowStat.index}__]}"/>
+                                </td>
+                                <td>
+                                    <button type="submit" name="removeSummary" th:value="${rowStat.index}">Remove row
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
 
-                    <div class="form-group">
-                        <label for="fullName" class="col-lg-2 col-xs-2 col-md-1 control-label">Full name</label>
-                        <div class="col-lg-5 col-md-4 col-xs-10">
-                            <input class="form-control" id="fullName" th:placeholder="Name" th:type="text"
-                                   th:field="*{fullName}" th:disabled="${freeze == null}? #{bool.false} : ${freeze}"/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="telephone" class="col-lg-2 col-xs-2 col-md-1 control-label">Phone</label>
-                        <div class="col-lg-4 col-md-3 col-xs-10">
-                            <input class="form-control" id="telephone" th:placeholder="Telephone" type="text"
-                                   th:field="*{telephoneNumber}" th:disabled="${freeze == null}? #{bool.false} : ${freeze}"/>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="inputEmail" class="col-lg-2 col-xs-2 col-md-1 control-label">Email</label>
-                        <div class="col-lg-4 col-md-3 col-xs-10">
-                            <input class="form-control" id="inputEmail" th:placeholder="Email" th:type="text"
-                                   th:field="*{personEmail}" th:errorclass="fieldError" th:disabled="${freeze == null}? #{bool.false} : ${freeze}"/>
-
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="notes" class="col-lg-2 col-xs-2 col-md-1 control-label">Notes</label>
-                        <div class="col-lg-5 col-md-4 col-cs-10">
-                            <textarea class="form-control" rows="4" id="notes" th:field="*{notes}"
-                                      th:disabled="${freeze == null}? #{bool.false} : ${freeze}" />
-                            <span class="help-block">Please provide the details of the reason you want to get in touch with me.</span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-lg-7 col-lg-offset-2">
-                            <button th:type="reset" class="btn btn-default">Cancel</button>
-                            <button th:type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+                    <div class="submit">
+                        <button type="submit" name="saveCareerProfile">Post Career Profile</button>
                     </div>
                 </fieldset>
             </form>

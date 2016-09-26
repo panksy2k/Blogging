@@ -5,6 +5,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -15,10 +17,7 @@ public class CareerResume {
     @Id
     private String id;
     private String candidateName;
-
-    @NotNull
-    private ProfessionalSummary summary;
-    @NotNull
+    private ProfessionalSummary summary = new ProfessionalSummary();
     private List<ProjectSpecification> experience;
 
     public String getId() {
@@ -53,15 +52,15 @@ public class CareerResume {
         this.candidateName = candidateName;
     }
 
-    private static class ProfessionalSummary {
-        private String summary[];
+    public static class ProfessionalSummary {
+        private List<String> summaryInfo = new ArrayList<>(1);
 
-        public String[] getSummary() {
-            return summary;
+        public List<String> getSummaryInfo() {
+            return summaryInfo;
         }
 
-        public void setSummary(String[] summary) {
-            this.summary = summary;
+        public void setSummaryInfo(List<String> summaryInfo) {
+            this.summaryInfo = summaryInfo;
         }
     }
 

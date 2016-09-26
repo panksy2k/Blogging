@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Created by pankajpardasani on 17/07/2016.
@@ -23,7 +21,7 @@ import java.util.stream.Stream;
 public class BlogManageController {
 
     @RequestMapping(value = "/admin/search", method = RequestMethod.GET)
-    public String createBlogPage(Model blogModel) {
+    public String getAllBlogs(Model blogModel) {
         Blog b1 = new Blog();
 
         b1.setCreationDate(LocalDate.now());
@@ -39,13 +37,20 @@ public class BlogManageController {
         b2.setTitle("Spring MVC -- Part 2");
         b2.setUpdateDate(LocalDate.now());
 
-        List<Blog> listOfBlog = Stream.of(b1, b2).collect(Collectors.toCollection(ArrayList<Blog> :: new));
+        List<Blog> listOfBlog = Arrays.asList(b1, b2);
         blogModel.addAttribute("blogList", listOfBlog);
 
         return "showAllBlogs";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/create", method = RequestMethod.GET)
+    public String createBlog(Model blogModel) {
+        blogModel.addAttribute("blog", new Blog());
+
+        return "blogCreate";
+    }
+
+    @RequestMapping(value = "/admin/submit", method = RequestMethod.POST)
     public String addNewBlog(@ModelAttribute("blogForm") @Valid Blog blogForm, BindingResult result) {
         return null;
     }
