@@ -9,4 +9,6 @@ import java.util.function.Supplier;
  */
 public interface BloggingBusinessConstant {
     public static final Supplier<DefaultEntry<String, String>> DOCUMENTMETAINFO = () -> new DefaultEntry<>("documentName", "PankajCV");
+    public static final String CANDIDATE_NAME = "Pankaj Pardasani";
 }
+

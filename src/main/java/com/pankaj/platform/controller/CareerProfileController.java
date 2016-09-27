@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  * Created by pankajpardasani on 24/09/2016.
  */
 @Controller
+@SessionAttributes(types = CareerResume.class)
 public class CareerProfileController {
 
     @Autowired
@@ -34,7 +36,7 @@ public class CareerProfileController {
             careerResumeService.putProfileDetails(careerProfile);
             sessionStatus.setComplete();
 
-            return "redirect:/home";
+            return "redirect:/profile/edit";
         }
         else {
             return "careerProfile";
@@ -69,13 +71,15 @@ public class CareerProfileController {
     }
 
     @RequestMapping(value="/profile/edit", params={"removeProject"})
-    public String removeCareerProject(final CareerResume careerResume, final BindingResult bindingResult, final HttpServletRequest req) {
+    public String removeCareerProject(final CareerResume careerResume, ModelMap careerModel, final BindingResult bindingResult, final HttpServletRequest req) {
         final Integer rowId = Integer.valueOf(req.getParameter("removeProject"));
 
-        if(ObjectUtil.checkIfNotEmpty(careerResume.getSummary().getSummaryInfo())) {
+        if(ObjectUtil.checkIfNotEmpty(careerResume.getExperience())) {
             careerResume.getExperience().remove(rowId.intValue());
+
         }
 
+        careerModel.put("careerProfile", careerResume);
         return "careerProfile";
     }
 }

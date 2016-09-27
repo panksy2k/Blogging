@@ -1,10 +1,11 @@
 package com.pankaj.platform.service.impl;
 
+import com.pankaj.platform.constant.BloggingBusinessConstant;
 import com.pankaj.platform.domain.CareerResume;
 import com.pankaj.platform.repository.CareerResumeRepository;
 import com.pankaj.platform.service.CareerResumeService;
+import com.pankaj.platform.util.ObjectUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -18,18 +19,22 @@ public class CareerResumeServiceImpl implements CareerResumeService {
     @Autowired
     private CareerResumeRepository careerResumeRepository;
 
+
     @Override
     public CareerResume getCareerExperienceDetails() {
-        CareerResume pankajResume = new CareerResume();
-        pankajResume.setCandidateName("Pankaj Pardasani");
-
-        CareerResume careerResume = Optional.ofNullable(careerResumeRepository.findOne(Example.of(pankajResume))).orElseGet(CareerResume :: new);
+        CareerResume careerResume = Optional.ofNullable(careerResumeRepository.findByCandidateName(BloggingBusinessConstant.CANDIDATE_NAME)).orElseGet(CareerResume::new);
         return careerResume;
     }
 
     @Override
     public boolean putProfileDetails(CareerResume resume) {
-        resume.setCandidateName("Pankaj Pardasani");
+        CareerResume careerResume = Optional.ofNullable(careerResumeRepository.findByCandidateName(BloggingBusinessConstant.CANDIDATE_NAME)).orElseGet(CareerResume::new);
+        resume.setCandidateName(BloggingBusinessConstant.CANDIDATE_NAME);
+
+        if(ObjectUtil.checkIfNotNull(careerResume.getId())) {
+            resume.setId(careerResume.getId());
+        }
+
         return Optional.of(careerResumeRepository.save(resume)).isPresent();
     }
 }
