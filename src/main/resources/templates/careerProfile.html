@@ -45,7 +45,7 @@
                                 <tr class="active" th:each="row,rowStat : *{summary.summaryInfo}">
                                     <td th:text="${rowStat.count}" class="table_element">1</td>
                                     <td class="table_element">
-                                        <textarea th:field="*{summary.summaryInfo[__${rowStat.index}__]}"/>
+                                        <textarea th:class="summary_textarea" th:field="*{summary.summaryInfo[__${rowStat.index}__]}"/>
                                     </td>
                                     <td>
                                         <button type="submit" name="removeSummary" th:value="${rowStat.index}"
@@ -77,23 +77,23 @@
                                 <tr class="active" th:each="experience,experienceStat : *{experience}">
                                     <td th:text="${experienceStat.count}" class="table_element">1</td>
                                     <td class="table_element">
-                                        <input type="text"
+                                        <textarea th:class="project_details_textarea"
                                                th:field="*{experience[__${experienceStat.index}__].projectName}"/>
                                     </td>
                                     <td class="table_element">
-                                        <input type="text"
+                                        <textarea th:class="project_details_textarea"
                                                th:field="*{experience[__${experienceStat.index}__].projectDescription}"/>
                                     </td>
                                     <td class="table_element">
-                                        <input type="text"
+                                        <textarea
                                                th:field="*{experience[__${experienceStat.index}__].organisation}"/>
                                     </td>
                                     <td class="table_element">
-                                        <input type="text"
+                                        <textarea th:class="project_details_textarea"
                                                th:field="*{experience[__${experienceStat.index}__].techEnvironment}"/>
                                     </td>
                                     <td class="table_element">
-                                        <input type="text"
+                                        <textarea th:class="project_details_textarea"
                                                th:field="*{experience[__${experienceStat.index}__].contributions}"/>
                                     </td>
                                     <td class="table_element">

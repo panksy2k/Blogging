@@ -263,3 +263,11 @@ body {
 .fileupload {
     font-size: 15px;
 }
+
+.summary_textarea {
+    width: 1300px; height: 185px;
+}
+
+.project_details_textarea {
+    width: 200px; height: 300px;
+}
