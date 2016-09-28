@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="/static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
     <link href="/static/css/blogCommon.css" th:href="@{/css/blogCommon.css}" rel="stylesheet"/>
-    <link href="/static/css/bootstrap-datetimepicker.min.css" th:href="@{/css/bootstrap-datetimepicker.min.css}" rel="stylesheet"/>
+    <link href="/static/css/bootstrap-datetimepicker.min.css" th:href="@{/css/bootstrap-datetimepicker.min.css}"
+          rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <script src="/static/js/jquery-2.2.4.min.js" th:src="@{/js/jquery-2.2.4.min.js}"/>
@@ -67,7 +68,8 @@
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>
-                                        <button type="submit" name="addProject" class="table_row_button">Add Project</button>
+                                        <button type="submit" name="addProject" class="table_row_button">Add Project
+                                        </button>
                                     </th>
                                 </tr>
                                 </thead>
@@ -96,18 +98,35 @@
                                     </td>
                                     <td class="table_element">
                                         <div class="input-group date" id="datetimepicker1">
-                                            <input type="text" class="form-control" th:field="*{experience[__${experienceStat.index}__].startDate}" />
+                                            <input type="text" class="form-control"
+                                                   th:field="*{experience[__${experienceStat.index}__].startDate}"/>
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
+                                        <script type="text/javascript">
+                                            $(function () {
+                                                $('#datetimepicker1').datetimepicker({format: 'YYYY-MM-DD', locale: 'en'});
+                                            });
+                                        </script>
                                     </td>
                                     <td class="table_element">
-                                        <input type="date"
-                                               th:field="*{experience[__${experienceStat.index}__].endDate}"/>
+                                        <div class="input-group date" id="datetimepicker2">
+                                            <input type="text" class="form-control"
+                                                   th:field="*{experience[__${experienceStat.index}__].endDate}"/>
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                        <script type="text/javascript">
+                                            $(function () {
+                                                $('#datetimepicker2').datetimepicker({format: 'YYYY-MM-DD', locale: 'en'});
+                                            });
+                                        </script>
                                     </td>
                                     <td>
-                                        <button type="submit" name="removeProject" th:value="${experienceStat.index}" class="table_row_button">Remove project
+                                        <button type="submit" name="removeProject" th:value="${experienceStat.index}"
+                                                class="table_row_button">Remove project
                                         </button>
                                     </td>
                                 </tr>

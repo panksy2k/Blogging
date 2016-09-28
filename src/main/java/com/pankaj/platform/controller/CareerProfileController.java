@@ -14,6 +14,8 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Created by pankajpardasani on 24/09/2016.
@@ -53,7 +55,11 @@ public class CareerProfileController {
 
     @RequestMapping(value="/profile/edit", params={"addProject"}, method = RequestMethod.POST)
     public String addCareerProjectDetails(final CareerResume careerProfile, ModelMap modelMap, final BindingResult bindingResult) {
-        careerProfile.getExperience().add(new CareerResume.ProjectSpecification());
+        CareerResume.ProjectSpecification projSpec = new CareerResume.ProjectSpecification();
+        projSpec.setStartDate(LocalDate.now());
+        projSpec.setEndDate(LocalDate.now());
+
+        careerProfile.getExperience().add(projSpec);
         modelMap.addAttribute("careerProfile", careerProfile);
 
         return "careerProfile";
