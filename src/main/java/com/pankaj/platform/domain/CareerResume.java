@@ -14,6 +14,10 @@ public class CareerResume {
     @Id
     private String id;
     private String candidateName;
+    private List<String> skills = new ArrayList<>(1);
+    private String emailAddress;
+    private Address homeAddress;
+
     private ProfessionalSummary summary = new ProfessionalSummary();
     private List<ProjectSpecification> experience = new ArrayList<>(1);
 
@@ -49,6 +53,30 @@ public class CareerResume {
         this.candidateName = candidateName;
     }
 
+    public List<String> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<String> skills) {
+        this.skills = skills;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public Address getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(Address homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
     public static class ProfessionalSummary {
         private List<String> summaryInfo = new ArrayList<>(1);
 
@@ -58,6 +86,54 @@ public class CareerResume {
 
         public void setSummaryInfo(List<String> summaryInfo) {
             this.summaryInfo = summaryInfo;
+        }
+    }
+
+    public static class Address {
+        private String doorStreet;
+        private String postCode;
+        private String area;
+        private String county;
+        private String country;
+
+        public String getDoorStreet() {
+            return doorStreet;
+        }
+
+        public void setDoorStreet(String doorStreet) {
+            this.doorStreet = doorStreet;
+        }
+
+        public String getPostCode() {
+            return postCode;
+        }
+
+        public void setPostCode(String postCode) {
+            this.postCode = postCode;
+        }
+
+        public String getArea() {
+            return area;
+        }
+
+        public void setArea(String area) {
+            this.area = area;
+        }
+
+        public String getCounty() {
+            return county;
+        }
+
+        public void setCounty(String county) {
+            this.county = county;
+        }
+
+        public String getCountry() {
+            return country;
+        }
+
+        public void setCountry(String country) {
+            this.country = country;
         }
     }
 
