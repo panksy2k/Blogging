@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -15,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 /**
  * Created by pankajpardasani on 24/09/2016.
@@ -92,5 +92,10 @@ public class CareerProfileController {
     @RequestMapping(value = "/profile/show", method = RequestMethod.GET)
     public String showCVPage() {
         return "mycv";
+    }
+
+    @ModelAttribute("careerProfile")
+    public CareerResume getFullCareerProfile() {
+        return careerResumeService.getCareerExperienceDetails();
     }
 }
