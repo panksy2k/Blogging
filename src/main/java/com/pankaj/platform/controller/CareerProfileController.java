@@ -88,4 +88,9 @@ public class CareerProfileController {
         careerModel.put("careerProfile", careerResume);
         return "careerProfile";
     }
+
+    @RequestMapping(value = "/profile/show", method = RequestMethod.GET)
+    public String showCVPage() {
+        return "mycv";
+    }
 }

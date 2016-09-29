@@ -13,6 +13,7 @@
     <script src="/static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"/>
     <script src="/static/js/moment.min.js" th:src="@{/js/moment.min.js}"/>
     <script src="/static/js/bootstrap-datetimepicker.min.js" th:src="@{/js/bootstrap-datetimepicker.min.js}"/>
+    <script src="/static/js/bloggingJS.js" th:src="@{/js/bloggingJS.js}"/>
 </head>
 <body>
 <div class="container-fluid">
@@ -97,32 +98,22 @@
                                                th:field="*{experience[__${experienceStat.index}__].contributions}"/>
                                     </td>
                                     <td class="table_element">
-                                        <div class="input-group date" id="datetimepicker1">
+                                        <div class="input-group date datepicker">
                                             <input type="text" class="form-control"
                                                    th:field="*{experience[__${experienceStat.index}__].startDate}"/>
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
-                                        <script type="text/javascript">
-                                            $(function () {
-                                                $('#datetimepicker1').datetimepicker({format: 'YYYY-MM-DD', locale: 'en'});
-                                            });
-                                        </script>
                                     </td>
                                     <td class="table_element">
-                                        <div class="input-group date" id="datetimepicker2">
+                                        <div class="input-group date datepicker">
                                             <input type="text" class="form-control"
                                                    th:field="*{experience[__${experienceStat.index}__].endDate}"/>
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
-                                        <script type="text/javascript">
-                                            $(function () {
-                                                $('#datetimepicker2').datetimepicker({format: 'YYYY-MM-DD', locale: 'en'});
-                                            });
-                                        </script>
                                     </td>
                                     <td>
                                         <button type="submit" name="removeProject" th:value="${experienceStat.index}"
