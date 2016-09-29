@@ -3,9 +3,7 @@ package com.pankaj.platform.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -67,6 +65,7 @@ public class CareerResume {
         private LocalDate startDate, endDate;
         private String projectName, projectDescription;
         private String organisation;
+        private String jobTitle;
         private String techEnvironment;
         private String contributions[];
 
@@ -124,6 +123,14 @@ public class CareerResume {
 
         public void setContributions(String[] contributions) {
             this.contributions = contributions;
+        }
+
+        public String getJobTitle() {
+            return jobTitle;
+        }
+
+        public void setJobTitle(String jobTitle) {
+            this.jobTitle = jobTitle;
         }
     }
 }

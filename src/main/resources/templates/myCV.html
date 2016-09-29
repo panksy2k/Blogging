@@ -34,17 +34,22 @@
             <h2>Professional Info</h2>
             <hr/>
 
-            <h5>Placeholder for putting the professional experience summary</h5>
+            <div th:each="careerSummaryInfo,careerSummaryInfoStat : ${careerProfile.summary.summaryInfo}">
+                <h5 th:text="${careerSummaryInfo}"/>
+            </div>
 
             <br/><br/>
+
             <h2>Work experience</h2>
             <hr/>
 
-            <h5>Job Title Placeholder</h5>
-            <h5>Start Year = End Year</h5>
-            <br/>
-            <h5>Placeholder for project description</h5>
-
+            <div id="projectDetailsId" th:each="projSpec,projSpecStat : ${careerProfile.experience}">
+                <h5><span th:text="${projSpec.organisation}"/>:&nbsp;<span th:text="${projSpec.jobTitle}"/></h5>
+                <h5><span>Project: </span><span th:text="${projSpec.projectName}"/></h5>
+                <h5><span th:text="${projSpec.startDate}"/> - <span th:text="${projSpec.endDate}"/></h5>
+                <br/>
+                <h5 th:text="${projSpec.projectDescription}"/>
+            </div>
         </section>
 
         <section class="col-lg-3">
