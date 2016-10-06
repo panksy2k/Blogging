@@ -1,0 +1,8 @@
+FROM frolvlad/alpine-oraclejdk8:slim
+MAINTAINER pankaj.d.p@gmail.com
+VOLUME /tmp
+ADD blogging-pankaj-docker-0.1.0.jar blogging-pankaj-docker.jar
+EXPOSE 8080
+RUN sh -c 'touch /blogging-pankaj-docker.jar'
+#ENTRYPOINT ["java","-Dspring.data.mongodb.uri=mongodb://mongodb/BLOGGING","-Djava.security.egd=file:/dev/./urandom","-jar","/blogging-pankaj-docker.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.profiles.active=container","-jar","/blogging-pankaj-docker.jar"]
