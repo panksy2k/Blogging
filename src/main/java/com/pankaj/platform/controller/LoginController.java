@@ -16,7 +16,7 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    /*@RequestMapping(method = RequestMethod.POST)
     public String handleLogin(@RequestParam String userName, @RequestParam String password, RedirectAttributes redirect) {
         try {
             checkForUserCredentials(userName, password);
@@ -30,5 +30,5 @@ public class LoginController {
 
     private void checkForUserCredentials(String userName, String password) {
         if(userName.equals("pankaj") && !password.equals("pankaj")) throw new RuntimeException("Invalid credentials");
-    }
+    }*/
 }

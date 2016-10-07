@@ -16,19 +16,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/home/**", "/contact/form/**", "/cv/**")
-                .permitAll()
-                .and()
-                .antMatcher("/file/upload/**").authorizeRequests()
+                .antMatchers("/", "/home", "/login", "/contact/form", "/profile/show", "/css/**", "/images/**", "/js/**", "/messages/**").permitAll()
+                .antMatchers("/file/upload", "/profile/edit").hasRole("ADMIN")
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login").permitAll()
+                .loginPage("/login")
+                .failureUrl("/login?error").permitAll()
                 .and()
-                .logout().permitAll();
+                .logout()
+                .permitAll();
     }
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("pankaj").password("pankaj").roles("USER");
+        auth.inMemoryAuthentication().withUser("pankaj").password("pankaj").roles("ADMIN");
     }
 }
