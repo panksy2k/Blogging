@@ -101,6 +101,7 @@
 				<configuration>
 					<imageName>${docker.image.prefix}/${project.artifactId}</imageName>
 					<dockerDirectory>src/main/docker</dockerDirectory>
+					<forceTags>true</forceTags>
 					<resources>
 						<resource>
 							<targetPath>/</targetPath>
