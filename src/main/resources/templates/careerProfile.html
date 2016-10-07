@@ -30,6 +30,17 @@
                 <div class="col-lg-11">
                     <form class="form-horizontal" action="#" th:action="@{/profile/edit}" method="post" th:object="${careerProfile}">
                         <fieldset>
+                            <div class="col-lg-6">
+                                <label for="personalEmail" class="col-lg-2">Email</label>
+                                <input type="text" class="col-lg-4" id="personalEmail" placeholder="Email" th:field="${careerProfile.emailAddress}"/>
+                            </div>
+
+                            <div class="col-lg-7">
+                                <label for="personalEmail" class="col-lg-2">Home Address</label>
+                                <input type="text" class="col-lg-4" id="personalEmail" placeholder="Email" th:field="${careerProfile.emailAddress}"/>
+                            </div>
+
+
                             <table class="table table-striped table-hover">
                                 <thead class="table_header">
                                 <tr>
@@ -44,10 +55,13 @@
                                 <tr th:each="row,rowStat : *{summary.summaryInfo}">
                                     <td th:text="${rowStat.count}">1</td>
                                     <td>
-                                        <textarea th:class="summary_textarea" th:field="*{summary.summaryInfo[__${rowStat.index}__]}"/>
+                                        <textarea th:class="summary_textarea"
+                                                  th:field="*{summary.summaryInfo[__${rowStat.index}__]}"/>
                                     </td>
                                     <td>
-                                        <button type="submit" name="removeSummary" th:value="${rowStat.index}" class="btn btn-info">Remove row</button>
+                                        <button type="submit" name="removeSummary" th:value="${rowStat.index}"
+                                                class="btn btn-info">Remove row
+                                        </button>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -66,7 +80,8 @@
                                     <th>Start Date</th>
                                     <th>End Date</th>
                                     <th>
-                                        <button type="submit" name="addProject" class="btn btn-info">Add Project</button>
+                                        <button type="submit" name="addProject" class="btn btn-info">Add Project
+                                        </button>
                                     </th>
                                 </tr>
                                 </thead>
@@ -75,15 +90,15 @@
                                     <td th:text="${experienceStat.count}" class="table_row">1</td>
                                     <td class="table_row">
                                         <textarea th:class="project_details_textarea"
-                                               th:field="*{experience[__${experienceStat.index}__].projectName}"/>
+                                                  th:field="*{experience[__${experienceStat.index}__].projectName}"/>
                                     </td>
                                     <td class="table_row">
                                         <textarea th:class="project_details_textarea"
-                                               th:field="*{experience[__${experienceStat.index}__].projectDescription}"/>
+                                                  th:field="*{experience[__${experienceStat.index}__].projectDescription}"/>
                                     </td>
                                     <td class="table_row">
                                         <textarea th:class="project_details_textarea"
-                                               th:field="*{experience[__${experienceStat.index}__].organisation}"/>
+                                                  th:field="*{experience[__${experienceStat.index}__].organisation}"/>
                                     </td>
                                     <td class="table_row">
                                         <textarea th:class="project_details_textarea"
@@ -91,11 +106,11 @@
                                     </td>
                                     <td class="table_row">
                                         <textarea th:class="project_details_textarea"
-                                               th:field="*{experience[__${experienceStat.index}__].techEnvironment}"/>
+                                                  th:field="*{experience[__${experienceStat.index}__].techEnvironment}"/>
                                     </td>
                                     <td class="table_row">
                                         <textarea th:class="project_details_textarea"
-                                               th:field="*{experience[__${experienceStat.index}__].contributions}"/>
+                                                  th:field="*{experience[__${experienceStat.index}__].contributions}"/>
                                     </td>
                                     <td class="table_row">
                                         <div class="input-group date datepicker">
@@ -116,13 +131,17 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <button type="submit" name="removeProject" th:value="${experienceStat.index}" class="btn btn-info">Remove project</button>
+                                        <button type="submit" name="removeProject" th:value="${experienceStat.index}"
+                                                class="btn btn-info">Remove project
+                                        </button>
                                     </td>
                                 </tr>
                                 </tbody>
                             </table>
                             <div class="submit">
-                                <button type="submit" name="saveCareerProfile" class="btn btn-info">Post Career Profile</button>
+                                <button type="submit" name="saveCareerProfile" class="btn btn-info">Post Career
+                                    Profile
+                                </button>
                             </div>
                         </fieldset>
                     </form>
