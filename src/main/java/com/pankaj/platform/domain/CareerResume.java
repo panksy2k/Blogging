@@ -16,7 +16,7 @@ public class CareerResume {
     private String candidateName;
     private List<String> skills = new ArrayList<>(1);
     private String emailAddress;
-    private Address homeAddress;
+    private Address homeAddress = new Address();
 
     private ProfessionalSummary summary = new ProfessionalSummary();
     private List<ProjectSpecification> experience = new ArrayList<>(1);
@@ -92,7 +92,6 @@ public class CareerResume {
     public static class Address {
         private String doorStreet;
         private String postCode;
-        private String area;
         private String county;
         private String country;
 
@@ -110,14 +109,6 @@ public class CareerResume {
 
         public void setPostCode(String postCode) {
             this.postCode = postCode;
-        }
-
-        public String getArea() {
-            return area;
-        }
-
-        public void setArea(String area) {
-            this.area = area;
         }
 
         public String getCounty() {

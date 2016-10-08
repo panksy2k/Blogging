@@ -24,9 +24,17 @@
             <div class="jumbotron">
                 <h2>CV</h2>
                 <h6 th:text="${careerProfile.candidateName}"><br/>Anonymous</h6>
-                <h6>39 Bearing Way, Chigwell,<br/>IG7 4NB,<br/>Essex,<br/>United Kingdom</h6>
+                <h6>
+                    <span th:text="${careerProfile.homeAddress.doorStreet}"/>
+                    <span>,<br/></span>
+                    <span th:text="${careerProfile.homeAddress.postCode}"/>
+                    <span>,<br/></span>
+                    <span th:text="${careerProfile.homeAddress.county}" alt="Essex"/>
+                    <span>,<br/></span>
+                    <span th:text="${careerProfile.homeAddress.country}"/>
+                </h6>
                 <h6>Email: pankaj.d.p@gmail.com</h6>
-                <a href="#" alt="Linkedin profile URL"><img th:src="@{/images/linkedin.png}" alt="Linkedin Icon"/></a>
+                <a href="https://uk.linkedin.com/in/pankajpardasani" alt="Linkedin profile URL"><img th:src="@{/images/linkedin.png}" alt="Linkedin Icon"/></a>
             </div>
         </section>
 

@@ -38,8 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected static class AuthenticationSecurity extends GlobalAuthenticationConfigurerAdapter {
         @Override
         public void init(AuthenticationManagerBuilder auth) throws Exception {
-            auth.inMemoryAuthentication().withUser("admin").password("admin")
-                    .roles("ADMIN", "USER").and().withUser("pankaj").password("pankaj")
+            auth.inMemoryAuthentication().withUser("admin").password("AdMiN")
+                    .roles("ADMIN", "USER").and().withUser("pankaj").password("PaNkAj")
                     .roles("USER");
         }
     }
