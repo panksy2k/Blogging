@@ -53,6 +53,13 @@
                                 </div>
                             </div>
 
+                            <div class="row">
+                                <div class="form-group form_element col-lg-11 col-lg-offset-1">
+                                    <label for="tech" class="col-lg-2">Technologies</label>
+                                    <input type="text" class="col-lg-8" id="tech" placeholder="Mention your skills" th:field="${careerProfile.skills}"/>
+                                </div>
+                            </div>
+
                             <table class="table table-striped table-hover">
                                 <thead class="table_header">
                                 <tr>
@@ -109,11 +116,11 @@
                                                   th:field="*{experience[__${experienceStat.index}__].projectDescription}"/>
                                     </td>
                                     <td class="table_row">
-                                        <textarea th:class="project_details_textarea"
+                                        <textarea th:class="project_details_textarea" style="width: 75px; height: 300px"
                                                   th:field="*{experience[__${experienceStat.index}__].organisation}"/>
                                     </td>
                                     <td class="table_row">
-                                        <textarea th:class="project_details_textarea"
+                                        <textarea th:class="project_details_textarea" style="width: 75px; height: 300px"
                                                   th:field="*{experience[__${experienceStat.index}__].jobTitle}"/>
                                     </td>
                                     <td class="table_row">
@@ -129,7 +136,7 @@
                                             <input type="text" class="form-control"
                                                    th:field="*{experience[__${experienceStat.index}__].startDate}"/>
                                             <span class="input-group-addon">
-                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                <span class="glyphicon glyphicon-calendar datepicker_inherit"></span>
                                             </span>
                                         </div>
                                     </td>

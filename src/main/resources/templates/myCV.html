@@ -23,17 +23,14 @@
         <section class="col-lg-10 col-lg-offset-1">
             <div class="jumbotron">
                 <h2>CV</h2>
+                <br/>
                 <h6 th:text="${careerProfile.candidateName}"><br/>Anonymous</h6>
-                <h6>
-                    <span th:text="${careerProfile.homeAddress.doorStreet}"/>
-                    <span>,<br/></span>
-                    <span th:text="${careerProfile.homeAddress.postCode}"/>
-                    <span>,<br/></span>
-                    <span th:text="${careerProfile.homeAddress.county}" alt="Essex"/>
-                    <span>,<br/></span>
-                    <span th:text="${careerProfile.homeAddress.country}"/>
-                </h6>
+                <h6 th:text="${careerProfile.homeAddress.doorStreet}"/>
+                <h6 th:text="${careerProfile.homeAddress.postCode}"/>
+                <h6 th:text="${careerProfile.homeAddress.county}" alt="Essex"/>
+                <h6 th:text="${careerProfile.homeAddress.country}"/>
                 <h6>Email: pankaj.d.p@gmail.com</h6>
+                <br/>
                 <a href="https://uk.linkedin.com/in/pankajpardasani" alt="Linkedin profile URL"><img th:src="@{/images/linkedin.png}" alt="Linkedin Icon"/></a>
             </div>
         </section>
@@ -63,10 +60,7 @@
         <section class="col-lg-3">
             <h2>Technologies</h2>
             <hr/>
-            <ul>
-                <li>Java</li>
-                <li>Spring Boot (placeholder for all tech</li>
-            </ul>
+            <h5 th:text="${careerProfile.skills}"/>
         </section>
     </div>
 </div>

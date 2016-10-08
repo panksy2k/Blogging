@@ -14,7 +14,7 @@ public class CareerResume {
     @Id
     private String id;
     private String candidateName;
-    private List<String> skills = new ArrayList<>(1);
+    private String skills;
     private String emailAddress;
     private Address homeAddress = new Address();
 
@@ -53,11 +53,11 @@ public class CareerResume {
         this.candidateName = candidateName;
     }
 
-    public List<String> getSkills() {
+    public String getSkills() {
         return skills;
     }
 
-    public void setSkills(List<String> skills) {
+    public void setSkills(String skills) {
         this.skills = skills;
     }
 

@@ -270,9 +270,14 @@ body {
 }
 
 .project_details_textarea {
-    width: 200px; height: 300px;
+    width: 180px; height: 300px;
     color: #033c73;
 }
+
+.datepicker_inherit {
+    color: #033c73;
+}
+
 
 .form_padding {
     margin-top: 80px;
@@ -297,4 +302,8 @@ body {
     text-align: left;
     color: darkslategray;
     padding-left: 16px;
+}
+
+.hr_color {
+    color: #2d6987;
 }
