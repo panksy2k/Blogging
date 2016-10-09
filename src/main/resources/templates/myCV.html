@@ -25,11 +25,11 @@
                 <h2>CV</h2>
                 <br/>
                 <h6 th:text="${careerProfile.candidateName}"><br/>Anonymous</h6>
-                <h6 th:text="${careerProfile.homeAddress.doorStreet}"/>
-                <h6 th:text="${careerProfile.homeAddress.postCode}"/>
-                <h6 th:text="${careerProfile.homeAddress.county}" alt="Essex"/>
+                <h6><span th:text="${careerProfile.homeAddress.doorStreet}"/><span>,</span></h6>
+                <h6><span th:text="${careerProfile.homeAddress.postCode}"/><span>,</span></h6>
+                <h6><span th:text="${careerProfile.homeAddress.county}" alt="Essex"/><span>,</span></h6>
                 <h6 th:text="${careerProfile.homeAddress.country}"/>
-                <h6>Email: pankaj.d.p@gmail.com</h6>
+                <h6><span>Email: </span><span th:text="${careerProfile.emailAddress}"/></h6>
                 <br/>
                 <a href="https://uk.linkedin.com/in/pankajpardasani" alt="Linkedin profile URL"><img th:src="@{/images/linkedin.png}" alt="Linkedin Icon"/></a>
             </div>
@@ -52,8 +52,9 @@
                 <h5><span th:text="${projSpec.organisation}"/>:&nbsp;<span th:text="${projSpec.jobTitle}"/></h5>
                 <h5><span>Project: </span><span th:text="${projSpec.projectName}"/></h5>
                 <h5><span th:text="${projSpec.startDate}"/> - <span th:text="${projSpec.endDate}"/></h5>
-                <br/>
                 <h5 th:text="${projSpec.projectDescription}"/>
+                <h5>Environment:&nbsp;<span th:text="${projSpec.techEnvironment}"/></h5>
+                <br/>
             </div>
         </section>
 
