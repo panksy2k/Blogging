@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <body>
 <div class="container-fluid">
     <div id="top" class="page-header">
@@ -22,8 +22,10 @@
                         <li><a th:href="@{/contact/form}">Contact me</a></li>
                         <li><a th:href="@{/profile/edit}">Edit Career Profile</a></li>
                         <li><a th:href="@{/file/upload}">Upload CV</a></li>
-                        <li><a th:href="@{/logout}" href="logout">Logout</a></li>
-                        <li><a href="mailto:pankaj.d.p@gmail.com" class="button button__contact button__contact--header">Hire Me</a></li>
+                        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}" href="logout">Logout</a></li>
+                        <li sec:authorize="isAnonymous()"><a th:href="@{/login}" href="login">Login</a></li>
+                        <li><a href="mailto:pankaj.d.p@gmail.com"
+                               class="button button__contact button__contact--header">Hire Me</a></li>
                     </ul>
                 </div>
             </div>

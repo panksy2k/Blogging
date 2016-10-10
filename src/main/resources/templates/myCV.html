@@ -8,10 +8,7 @@
           rel="stylesheet"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <script src="/static/js/jquery-2.2.4.min.js" th:src="@{/js/jquery-2.2.4.min.js}"/>
     <script src="/static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"/>
-    <script src="/static/js/moment.min.js" th:src="@{/js/moment.min.js}"/>
-    <script src="/static/js/bootstrap-datetimepicker.min.js" th:src="@{/js/bootstrap-datetimepicker.min.js}"/>
 </head>
 <body>
 <div class="container-fluid">
@@ -37,7 +34,7 @@
 
         <section class="col-lg-7 col-lg-offset-1">
             <h2>Professional Info</h2>
-            <hr/>
+            <hr class="hr_headers"/>
 
             <div th:each="careerSummaryInfo,careerSummaryInfoStat : ${careerProfile.summary.summaryInfo}">
                 <h5 th:text="${careerSummaryInfo}"/>
@@ -46,7 +43,7 @@
             <br/><br/>
 
             <h2>Work experience</h2>
-            <hr/>
+            <hr class="hr_headers"/>
 
             <div id="projectDetailsId" th:each="projSpec,projSpecStat : ${careerProfile.experience}">
                 <h5><span th:text="${projSpec.organisation}"/>:&nbsp;<span th:text="${projSpec.jobTitle}"/></h5>
@@ -54,13 +51,15 @@
                 <h5><span th:text="${projSpec.startDate}"/> - <span th:text="${projSpec.endDate}"/></h5>
                 <h5 th:text="${projSpec.projectDescription}"/>
                 <h5>Environment:&nbsp;<span th:text="${projSpec.techEnvironment}"/></h5>
-                <br/>
+
+                <hr class="hr_project"/>
+
             </div>
         </section>
 
         <section class="col-lg-3">
             <h2>Technologies</h2>
-            <hr/>
+            <hr class="hr_headers"/>
             <h5 th:text="${careerProfile.skills}"/>
         </section>
     </div>
