@@ -324,4 +324,10 @@ body {
     border-width: 0.2px;
 }
 
+a:link {
+    color: honeydew;
+}
 
+a:visited {
+    color: honeydew;
+}
