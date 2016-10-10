@@ -3,6 +3,7 @@ package com.pankaj.platform.config;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
@@ -21,17 +22,20 @@ public class JavaMailConfig {
     @Value("${mail.server.protocol}")
     private String mailProtocol;
 
-    @Value("${mail.transport.protocol}")
-    private String mailTransportProtocol;
-
     @Value("${mail.smtp.auth}")
     private String isSMTPAuthticated;
 
     @Value("${mail.smtp.starttls.enable}")
     private String isSMTPTLSEnabled;
 
+    @Value("${mail.server.username}")
+    private String userName;
+
+    @Value("${mail.server.password}")
+    private String password;
+
     @Bean(name = "mailSender")
-    public JavaMailSenderImpl mailSender() {
+    public JavaMailSender mailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 
         Properties javaMailProperties = new Properties();
@@ -45,6 +49,8 @@ public class JavaMailConfig {
         mailSender.setPort(port);
         mailSender.setProtocol(mailProtocol);
         mailSender.setDefaultEncoding(mailEncoding);
+        mailSender.setUsername(userName);
+        mailSender.setPassword(password);
 
         return mailSender;
     }
