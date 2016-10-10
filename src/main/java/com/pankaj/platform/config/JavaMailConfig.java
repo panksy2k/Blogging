@@ -1,4 +1,3 @@
-/*
 package com.pankaj.platform.config;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -8,23 +7,18 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 import java.util.Properties;
 
-*/
-/**
- * Created by pardasap on 18/07/2016.
- *//*
-
 @Configuration
 public class JavaMailConfig {
-    @Value("${mail.smtp}")
+    @Value("${mail.server.host}")
     private String smtp;
 
-    @Value("${mail.port}")
+    @Value("${mail.server.port}")
     private int port;
 
     @Value("${mail.encoding}")
     private String mailEncoding;
 
-    @Value("${mail.protocol}")
+    @Value("${mail.server.protocol}")
     private String mailProtocol;
 
     @Value("${mail.transport.protocol}")
@@ -55,4 +49,3 @@ public class JavaMailConfig {
         return mailSender;
     }
 }
-*/
